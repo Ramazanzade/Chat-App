@@ -32,20 +32,20 @@ export default StyleSheet.create({
         borderRadius: 20,
         width: '90%',
         borderColor: 'gray',
-        margin:'5%',
-        height:60
+        margin: '5%',
+        height: 60
     },
     imputtext: {
         fontSize: 15,
         color: '#000000',
         fontWeight: '400',
-        marginLeft:'12%'
+        marginLeft: '12%'
     },
     imputview: {
         marginTop: '20%'
     },
-    toucview:{
-marginLeft:'10%',
-marginTop:'15%'
+    toucview: {
+        marginLeft: '10%',
+        marginTop: '15%'
     }
 })

@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import loginregistercss from './loginregistercss'
 import onboardingcss from '../Onboarding/onboardingcss'
 
-export default function LoginRegister({navigation}:any) {
-    const [name , setname]=useState('')
+export default function LoginRegister({ navigation }: any) {
+    const [name, setname] = useState('')
     const [paswword, setpaswword] = useState('')
     const [email, setemail] = useState('')
     return (
@@ -20,7 +20,7 @@ export default function LoginRegister({navigation}:any) {
                 />
             </View>
             <View style={loginregistercss.imputview}>
-            <View>
+                <View>
                     <Text style={loginregistercss.imputtext}>Name</Text>
                     <TextInput
                         style={loginregistercss.imput}
@@ -47,8 +47,8 @@ export default function LoginRegister({navigation}:any) {
 
             </View>
             <View style={loginregistercss.toucview} >
-                <TouchableOpacity style={[onboardingcss.touc, {height:60}]} onPress={() => navigation.navigate('LoginRegisterScreen', { screen: 'LoginRegister' })}>
-                    <Text style={[onboardingcss.touctext,{marginTop:'5%'}]}>Register</Text>
+                <TouchableOpacity style={[onboardingcss.touc, { height: 60 }]} onPress={() => navigation.navigate('LoginRegisterScreen', { screen: 'LoginRegister' })}>
+                    <Text style={[onboardingcss.touctext, { marginTop: '5%' }]}>Register</Text>
                 </TouchableOpacity>
             </View>
         </View>

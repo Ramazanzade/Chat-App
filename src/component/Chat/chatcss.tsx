@@ -1,0 +1,57 @@
+import { StyleSheet } from 'react-native'
+export default StyleSheet.create({
+touc:{
+borderWidth:2,
+borderColor:"#771F98",
+width:'90%',
+borderRadius:15,
+marginHorizontal:'5%',
+marginVertical:'3%',
+flexDirection:'row',
+justifyContent:'space-between'
+},
+img:{
+width:50,
+height:50,
+borderRadius:50
+},
+nametext:{
+fontSize:25,
+color:'#000000',
+fontWeight:'400',
+marginBottom:'3%'
+},
+datetext:{
+
+},
+mesagetext:{
+
+},
+imgview:{
+margin:'5%'
+},
+text1:{
+flexDirection:'column',
+marginLeft:'5%',
+},
+text2:{
+margin:'3%'
+},
+view1:{
+    flexDirection:'row',
+    margin:'2%'
+},
+messahe1view:{
+backgroundColor:'#771F98',
+borderRadius:50,
+width:25,
+height:25,
+marginTop:'20%',
+alignSelf:'center'
+},
+message1text:{
+color:'#ffffff',
+textAlign:'center',
+marginTop:'10%'
+}
+})
