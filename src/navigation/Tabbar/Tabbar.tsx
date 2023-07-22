@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHome, faNoteSticky, faDownload, faBars } from '@fortawesome/free-solid-svg-icons';
 import tabbarcss from './tabbarcss';
 import HomeScreen from '../Stack/HomeStack/HomeScreen';
+import Addfridesscreen from '../Stack/AddfridensStack/Addfridesscreen';
+import ProfileScreen from '../Stack/ProfileStack/ProfileScreen';
 
 
 
@@ -42,29 +44,20 @@ const Tabbar = ({ route }: any) => {
         }}
         name="HomeScreen" component={HomeScreen}
       />
-       {/* <Tab.Screen
+       <Tab.Screen
         options={{
           tabBarIcon: ({ color, size, focused }:any) => <FontAwesomeIcon icon={faNoteSticky} style={tabbarcss.tabIcon} size={25} />,
           tabBarShowLabel: false,
         }}
-        name="DownloadScreen" component={DownloadScreen}
+        name="Addfridesscreen" component={Addfridesscreen}
       />
       <Tab.Screen
         options={{
           tabBarIcon: ({ color, size, focused }:any) => <FontAwesomeIcon icon={faDownload} style={tabbarcss.tabIcon} size={25} />,
           tabBarShowLabel: false,
         }}
-        name="CategoriesScreen" component={CategoriesScreen}
+        name="ProfileScreen" component={ProfileScreen}
       />
-       <Tab.Screen
-        options={{
-          tabBarIcon: ({ color, size, focused }:any) => <FontAwesomeIcon icon={faBars} style={tabbarcss.tabIcon} size={25} />,
-          tabBarShowLabel: false,
-        }}
-        name="MoreScreen" component={MoreScreen}
-      /> */}
-      
-
     </Tab.Navigator>
   )
 }

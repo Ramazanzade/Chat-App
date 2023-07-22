@@ -41,11 +41,11 @@ export default StyleSheet.create({
         margin: '3%'
     },
     dateview: {
-        backgroundColor:'#F1F1F1',
-        borderRadius:10,
-        paddingHorizontal:8,
-        paddingVertical:2,
-        margin:'2%'
+        backgroundColor: '#F1F1F1',
+        borderRadius: 10,
+        paddingHorizontal: 8,
+        paddingVertical: 2,
+        margin: '2%'
     },
     datetext1: {
 
@@ -73,16 +73,40 @@ export default StyleSheet.create({
     },
     dategelen: {
         alignSelf: 'flex-end',
-      
+
 
     },
     dategedən: {
         alignSelf: 'flex-start',
 
     },
-    input:{
-        
-    }
+    input: {
+        backgroundColor: "#F8F8F8",
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+        height: 80,
+        fontSize: 25,
+        textAlign: 'left',
+        paddingLeft: 20
+    },
 
+    inputview: {
+        // flexDirection:'row'
+    },
+
+    imputview: {
+        position: 'relative'
+    },
+    iconview1: {
+        position: 'absolute',
+        zIndex: 101,
+        alignSelf: 'flex-end',
+        flexDirection: 'row',
+        margin: '5%'
+    },
+    icontouch: {
+        marginRight: '5%',
+        paddingRight: 20
+    },
 
 })
