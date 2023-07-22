@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native'
 import React from 'react'
 import chatcss from './chatcss'
 
-const Chat = () => {
+const Chat = ({navigation}:any) => {
 
     const DATA = [
         { id: 1, name: 'Nizam', img: { uri: 'https://parade.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgxMjkxNjk3NDQ4ODI4/marveldisney.jpg' }, date: '12.55', message: 'Salam' },
@@ -14,7 +14,7 @@ const Chat = () => {
     ]
     const renderitem = ({ item }: any) => {
         return (
-            <TouchableOpacity style={chatcss.touc}>
+            <TouchableOpacity style={chatcss.touc} onPress={()=> navigation.navigate('Chatscreen2', { screen: 'Chatscreen' })}>
                 <View style={chatcss.view1}>
                     <View style={chatcss.imgview}>
                         <Image

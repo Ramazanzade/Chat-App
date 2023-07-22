@@ -1,16 +1,15 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Chat from '../../../component/Chat/Chat';
 import Chatscreen from '../../../component/Chatscreen/Chatscreen';
 
 
 const Stack = createNativeStackNavigator();
-const ChatScreen = () => {
+const Chatscreen2 = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }} >
-            <Stack.Screen name="Chat" component={Chat} />
+            <Stack.Screen name="Chatscreen" component={Chatscreen} />
         </Stack.Navigator>
     )
 }
-export default ChatScreen
+export default Chatscreen2
