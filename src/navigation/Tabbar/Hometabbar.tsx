@@ -10,9 +10,9 @@ const Hometabbar = () => {
   return (
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: 'gray',
-          tabBarLabelStyle: { fontSize: 25 },
-          tabBarStyle: { backgroundColor: 'black' },
+            tabBarActiveTintColor: '#771F98',
+            tabBarLabelStyle: { fontSize: 20 },
+          tabBarStyle: { backgroundColor: '#FFFFFF' },
         }}
       >
         <Tab.Screen name="Friends" component={FriendsScreen} />

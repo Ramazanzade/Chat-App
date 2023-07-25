@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 const tabbarcss = StyleSheet.create({
   tabIcon: {
     fontSize: 35,
-    color: '#FFFFFF',
+    color: '#771F98',
   },
   middleIcon: {
     color: '#FFFFFF',
