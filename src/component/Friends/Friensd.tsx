@@ -9,7 +9,7 @@ const Friensd = () => {
     <View>
 <View style={fridenscss.touchview}>
     <TouchableOpacity style={fridenscss.touc}>
-    <FontAwesomeIcon icon={faUserPlus} size={15} style={fridenscss.icon} />
+    <FontAwesomeIcon icon={faUserPlus} size={65} style={fridenscss.icon} />
     </TouchableOpacity>
 </View>
     </View>
