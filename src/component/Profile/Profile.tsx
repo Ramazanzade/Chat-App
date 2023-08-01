@@ -1,16 +1,11 @@
 import { View, Text, TouchableOpacity, FlatList } from 'react-native'
 import React from 'react'
 import Profilecss from './Profilecss'
+import { useSelector } from 'react-redux'
 
 const Profile = () => {
 
-    const DATA = [
-        { id: 1, text: 'Language' },
-        { id: 2, text: 'Display' },
-        { id: 3, text: 'Backroung' },
-        { id: 4, text: 'Size' },
-        { id: 5, text: 'Font' },
-    ]
+    const item = useSelector((state:any)=>state.ProfilerReducer.value)
     const renderitem = ({ item }: any) => {
         return (
             <TouchableOpacity style={Profilecss.touc}>
@@ -23,7 +18,7 @@ const Profile = () => {
             <Text style={Profilecss.text}> Setting</Text>
             <FlatList 
             style={Profilecss.flatlist}
-            data={DATA}
+            data={item}
             renderItem={renderitem}
             />
         </View>

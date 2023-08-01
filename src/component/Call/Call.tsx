@@ -2,19 +2,10 @@ import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import callcss from './callcss'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faVideo, faPhone, faRightLong, faLeftLong } from '@fortawesome/free-solid-svg-icons';
-
+import { useSelector } from 'react-redux';
 const Call = () => {
-    const DATA = [
-        { id: 1, name: 'Nizam', img: { uri: 'https://parade.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgxMjkxNjk3NDQ4ODI4/marveldisney.jpg' }, date: '12.55', call: 'zəng', gəlib: "zəng" },
-        { id: 2, name: 'Amar', img: { uri: 'https://parade.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgxMjkxNjk3NDQ4ODI4/marveldisney.jpg' }, date: '12.55', video: 'zəng', gedib: "zəng" },
-        { id: 3, name: 'Cəsi', img: { uri: 'https://parade.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgxMjkxNjk3NDQ4ODI4/marveldisney.jpg' }, date: '12.55', call: 'zəng', gedib: "zəng" },
-        { id: 4, name: 'Tural', img: { uri: 'https://parade.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgxMjkxNjk3NDQ4ODI4/marveldisney.jpg' }, date: '12.55', call: 'zəng', gəlib: "zəng" },
-        { id: 5, name: 'Nəbi', img: { uri: 'https://parade.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgxMjkxNjk3NDQ4ODI4/marveldisney.jpg' }, date: '12.55', video: 'zəng', gedib: "zəng" },
-
-    ]
-
+   const item = useSelector((state:any)=> state.CallReducer.value)
     const renderitem = ({ item }: any) => {
         return (
             <TouchableOpacity style={callcss.touc}>
@@ -52,10 +43,8 @@ const Call = () => {
     return (
         <View>
             <FlatList
-                data={DATA}
+                data={item}
                 renderItem={renderitem}
-            // contentContainerStyle={{ flexGrow: 1 }}
-            // horizontal={false}
 
             />
         </View>
