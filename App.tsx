@@ -5,17 +5,21 @@ import Tabbar from './src/navigation/Tabbar/Tabbar';
 import Chatscreen2 from './src/navigation/Stack/ChatscreenStack/Chatscreen2';
 import OnboardingScreen from './src/navigation/Stack/OnboardingStack/OnboardingScreen';
 import LoginRegisterScreen from './src/navigation/Stack/Login-RegistrStack/LoginRegisterScreen';
-
+import { Provider } from 'react-redux';
+import { setupStore } from './src/store/store';
+const store =setupStore()
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer> 
+      <Provider store={store}>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-      <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
-      <Stack.Screen name="LoginRegisterScreen" component={LoginRegisterScreen}/>  
+      {/* <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
+      <Stack.Screen name="LoginRegisterScreen" component={LoginRegisterScreen}/>   */}
             <Stack.Screen name="Tabbar" component={Tabbar}/>
             <Stack.Screen name="Chatscreen2" component={Chatscreen2}/>
       </Stack.Navigator>
+      </Provider>
     </NavigationContainer>
    
   )
