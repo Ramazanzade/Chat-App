@@ -14,10 +14,10 @@ const App = () => {
     <NavigationContainer> 
       <Provider store={store}>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-      {/* <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
-      <Stack.Screen name="LoginRegisterScreen" component={LoginRegisterScreen}/>   */}
+      <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
+      <Stack.Screen name="LoginRegisterScreen" component={LoginRegisterScreen}/>  
             <Stack.Screen name="Tabbar" component={Tabbar}/>
-            {/* <Stack.Screen name="Chatscreen2" component={Chatscreen2}/> */}
+            <Stack.Screen name="Chatscreen2" component={Chatscreen2}/>
       </Stack.Navigator>
       </Provider>
     </NavigationContainer>
