@@ -1,39 +1,10 @@
 import { View, Text, FlatList } from 'react-native'
 import React from 'react'
 import chatscreencss from './chatscreencss'
-
+import { useSelector } from 'react-redux'
 const Message = () => {
-    const DATA = [
-        {
-            id: 1, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
-        {
-            id: 2, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
-        {
-            id: 3, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
-        {
-            id: 4, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
-        {
-            id: 5, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
-        {
-            id: 6, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
-        {
-            id: 7, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
-        {
-            id: 8, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
-        {
-            id: 9, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-        },
 
-
-    ]
+const item = useSelector((state:any)=>state.Messagereducer.value)
     const renderitem = ({ item }: any) => {
         const isOdd = item.id % 2 === 1;
         const styles = isOdd ? chatscreencss.gelen : chatscreencss.gedən;
@@ -54,7 +25,7 @@ const Message = () => {
     return (
         <View>
             <FlatList
-                data={DATA}
+                data={item}
                 renderItem={renderitem}
             />
         </View>

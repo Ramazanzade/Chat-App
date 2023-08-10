@@ -2,11 +2,20 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import loginregistercss from './loginregistercss'
 import onboardingcss from '../Onboarding/onboardingcss'
+import { useDispatch } from 'react-redux'
+import { userregister } from '../../store/features/LoginRegisterStore/useraction'
 
 export default function LoginRegister({ navigation }: any) {
-    const [name, setname] = useState('')
-    const [paswword, setpaswword] = useState('')
-    const [email, setemail] = useState('')
+    const dispatch=useDispatch()
+    const [name, setname] = useState<any>('')
+    const [paswword, setpaswword] = useState<any>('')
+    const [email, setemail] = useState<any>('')
+
+    const Register = ()=>{
+        const userData = { name, paswword, email };
+        dispatch(userregister(userData));
+        navigation.navigate('Tabbar', { screen: 'HomeScreen' })
+        }
     return (
         <View style={loginregistercss.continur}>
             <View style={loginregistercss.textview}>
@@ -47,7 +56,7 @@ export default function LoginRegister({ navigation }: any) {
 
             </View>
             <View style={loginregistercss.toucview} >
-                <TouchableOpacity style={[onboardingcss.touc, { height: 60 }]} onPress={() => navigation.navigate('LoginRegisterScreen', { screen: 'LoginRegister' })}>
+                <TouchableOpacity style={[onboardingcss.touc, { height: 60 }]} onPress={Register}>
                     <Text style={[onboardingcss.touctext, { marginTop: '5%' }]}>Register</Text>
                 </TouchableOpacity>
             </View>
