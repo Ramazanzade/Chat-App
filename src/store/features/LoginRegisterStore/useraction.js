@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-export const userregister = createAsyncThunk('user/userregister', async(userdata)=>{
+export const userregister = createAsyncThunk('user/userregister', async (userdata)=>{
     const response = await axios.post(
         "https://chat-backend-ulkc.onrender.com/api/user/create-user",
         userdata
