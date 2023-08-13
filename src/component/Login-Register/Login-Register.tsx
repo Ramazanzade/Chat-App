@@ -4,17 +4,18 @@ import loginregistercss from './loginregistercss'
 import onboardingcss from '../Onboarding/onboardingcss'
 import { useDispatch } from 'react-redux'
 import { userregister } from '../../store/features/LoginRegisterStore/useraction'
+import { AppDispatch } from '../../store/store'
 export default function LoginRegister({ navigation }:any) {
     const [name, setname] = useState('')
     const [paswword, setpaswword] = useState('')
     const [email, setemail] = useState('')
-    const dispatch=useDispatch<any>()
+    const dispatch=useDispatch<AppDispatch>()
     const Register = async ()=>{
         const userdata = { name, paswword, email };
         console.log(userdata)
         try {
-            await dispatch(userregister( userdata)); 
-            // navigation.navigate('Tabbar', { screen: 'HomeScreen' });
+            await dispatch(userregister(userdata)); 
+            navigation.navigate('Tabbar', { screen: 'HomeScreen' });
         } catch (error) {
             console.error('Registration failed:', error);
             console.log(error)
