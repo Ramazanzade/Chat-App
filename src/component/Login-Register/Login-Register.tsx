@@ -5,24 +5,28 @@ import onboardingcss from '../Onboarding/onboardingcss'
 import { useDispatch } from 'react-redux'
 import { userregister } from '../../store/features/LoginRegisterStore/useraction'
 import { AppDispatch } from '../../store/store'
-export default function LoginRegister({ navigation }:any) {
-    const [name, setname] = useState('')
-    const [paswword, setpaswword] = useState('')
-    const [email, setemail] = useState('')
-    const dispatch=useDispatch<AppDispatch>()
-    const Register = async ()=>{
-        const userdata = { name, paswword, email };
-        console.log(userdata)
-        try {
-            await dispatch(userregister(userdata)); 
-            navigation.navigate('Tabbar', { screen: 'HomeScreen' });
-        } catch (error) {
+export default function LoginRegister({ navigation }: any) {
+    const [name, setname] = useState<string>('')
+    const [password, setpaswword] = useState<string>('')
+    const [email, setemail] = useState<string>('')
+    const dispatch = useDispatch<AppDispatch>()
+  
+    const Register = () => {
+        const userdata = { name, password, email }; 
+
+        dispatch(userregister(userdata)) 
+
+        .then((action) => {
+            const responsePayload = action.payload;
+            console.log('Registration successful:', responsePayload);
+            console.log('salam');
+        })
+        .catch((error) => {
             console.error('Registration failed:', error);
-            console.log(error)
-        }
+            console.log(error);
+        });
+    }
 
-
-        }
     return (
         <View style={loginregistercss.continur}>
             <View style={loginregistercss.textview}>
@@ -57,7 +61,7 @@ export default function LoginRegister({ navigation }:any) {
                     <TextInput
                         style={loginregistercss.imput}
                         onChangeText={setpaswword}
-                        value={paswword}
+                        value={password}
                     />
                 </View>
 

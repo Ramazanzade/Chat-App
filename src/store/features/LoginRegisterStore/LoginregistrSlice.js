@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { userdelete, usergetall, userregister } from "./useraction";
+import {  userregister } from "./useraction";
 
 const initialStateValue = {
     user: null,
