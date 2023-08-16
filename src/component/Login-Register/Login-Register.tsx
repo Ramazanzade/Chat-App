@@ -5,6 +5,7 @@ import onboardingcss from '../Onboarding/onboardingcss'
 import { useDispatch } from 'react-redux'
 import { userregister } from '../../store/features/LoginRegisterStore/useraction'
 import { AppDispatch } from '../../store/store'
+import { loginsucces } from '../../store/features/LoginRegisterStore/LoginregistrSlice'
 export default function LoginRegister({ navigation }: any) {
     const [name, setname] = useState<string>('')
     const [password, setpaswword] = useState<string>('')
@@ -19,7 +20,8 @@ export default function LoginRegister({ navigation }: any) {
         .then((action) => {
             const responsePayload = action.payload;
             console.log('Registration successful:', responsePayload);
-            console.log('salam');
+            dispatch(loginsucces(responsePayload)); 
+            navigation.navigate('Tabbar', { screen: 'HomeScreen' });
         })
         .catch((error) => {
             console.error('Registration failed:', error);

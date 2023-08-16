@@ -12,13 +12,13 @@ export const userregister = createAsyncThunk('user/userregister', async (userdat
   )
   return response.data
 })
-// export const usergetall = createAsyncThunk('user/getall', async(userdata)=>{
-//     const response = await axios.get(
-//         "https://chat-backend-ulkc.onrender.com/api/user/",
-//         userdata
-//   )
-//   return response.data
-// })
+export const usergetall = createAsyncThunk('user/getall', async(userdata1:any)=>{
+    const response = await axios.get(
+        "https://chat-backend-ulkc.onrender.com/api/user/",
+        userdata1
+  )
+  return response.data
+})
 // export const userdelete = createAsyncThunk('user/delete', async(userdata)=>{
 //     const response = await axios.delete(
 //         `https://chat-backend-ulkc.onrender.com/api/user/delete/${id}`,
