@@ -15,25 +15,31 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isAuthenticated = useSelector((state: any) => state.LoginRegisterreducer.user !== null);
-  const isFirstLaunch = useSelector((state: any) => state.LoginRegisterreducer.isFirstLaunch); 
+  const isFirstLaunch = useSelector((state: any) => state.LoginRegisterreducer.isFirstLaunch);
 
   useEffect(() => {
+    console.log("isFirstLaunch:", isFirstLaunch);
+
     if (isAuthenticated && isFirstLaunch) {
-      dispatch(loginsucces(isAuthenticated));
+      console.log("Logging in for the first time and isFirstLaunch is true");
+      dispatch(loginsucces(isFirstLaunch)); // Remove isFirstLaunch from here
     }
   }, [isAuthenticated, isFirstLaunch, dispatch]);
+
+  const initialScreen = isFirstLaunch ? "OnboardingScreen" : (isAuthenticated ? "Tabbar" : "LoginRegisterScreen");
 
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {isFirstLaunch && <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />}
         {isAuthenticated ? (
-          <Stack.Screen name="Tabbar" component={Tabbar} />
-        ) : isFirstLaunch ? (
-          <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
+          <>
+            <Stack.Screen name="Tabbar" component={Tabbar} />
+            <Stack.Screen name="Chatscreen2" component={Chatscreen2} />
+          </>
         ) : (
           <Stack.Screen name="LoginRegisterScreen" component={LoginRegisterScreen} />
         )}
-        <Stack.Screen name="Chatscreen2" component={Chatscreen2} />
       </Stack.Navigator>
     </NavigationContainer>
   );
