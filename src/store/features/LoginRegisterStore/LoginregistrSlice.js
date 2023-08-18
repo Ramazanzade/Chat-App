@@ -5,7 +5,9 @@ const initialStateValue = {
     user: null,
     loading: false,
     error: null,
-    isFirstLaunch: true
+    isLoggedIn: false,
+    isAuthenticated: false, // New field
+
 
 }
 
@@ -17,7 +19,8 @@ export const LoginregisterSlice = createSlice({
             state.user = action.payload
             state.loading = false;
             state.error = null;
-            state.isFirstLaunch=false
+            state.isFirstLaunch = false;
+            state.isAuthenticated = true;
         }
     },
     extraReducers: (builder) => {
