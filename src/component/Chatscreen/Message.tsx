@@ -1,10 +1,15 @@
 import { View, Text, FlatList } from 'react-native'
-import React from 'react'
+import React , {useEffect} from 'react'
 import chatscreencss from './chatscreencss'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchMessages } from '../../store/features/Messagesend'
 const Message = () => {
 
 const item = useSelector((state:any)=>state.Messagereducer.value)
+const dispatch = useDispatch<any>()
+useEffect(() => {
+    dispatch(fetchMessages()); 
+}, []);
     const renderitem = ({ item }: any) => {
         const isOdd = item.id % 2 === 1;
         const styles = isOdd ? chatscreencss.gelen : chatscreencss.gedən;
@@ -13,12 +18,12 @@ const item = useSelector((state:any)=>state.Messagereducer.value)
 
         return (
             <View>
-                <View style={[chatscreencss.textview, styles]}>
-                    <Text style={[chatscreencss.text1, style1]}>{item.text}</Text>
+                <View style={[chatscreencss.textview]}>
+                    <Text style={[chatscreencss.text1]}>{item.text}</Text>
                 </View>
-                <View style={[chatscreencss.dateview , style2]}>
+                {/* <View style={[chatscreencss.dateview , style2]}>
                     <Text style={[chatscreencss.datetext1, style2]}>{item.date}</Text>
-                </View>
+                </View> */}
             </View>
         )
     }

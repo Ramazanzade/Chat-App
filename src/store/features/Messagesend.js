@@ -1,50 +1,44 @@
  import { createSlice } from "@reduxjs/toolkit";
- const initialStateValue = [
-    {
-        id: 1, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    {
-        id: 2, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    {
-        id: 3, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    {
-        id: 4, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    {
-        id: 5, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    {
-        id: 6, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    {
-        id: 7, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    {
-        id: 8, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    {
-        id: 9, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-    
-    {
-        id: 10, text: 'bdhjsdhkwbhjakjd jamshdwkjdb jgdckjdc sjhdgcs ', date: '12/55'
-    },
-
-
-]
+ import axios from "axios";
+ const initialStateValue = []
 
 
 export const Messageslice = createSlice({
-    name:'message',
-    initialState:{value:initialStateValue},
-    reducers:{
-       messageaction:(state, action)=>{
-        state.value=action.payload
-       } 
-    }
+    name: 'message',
+    initialState: { value: initialStateValue },
+    reducers: {
+      messageaction: (state, action) => {
+        state.value = action.payload;
+      },
+      addMessage: (state, action) => {
+        state.value.push(action.payload);
+      },
+    },
 })
+
+export const fetchMessages = () => async (dispatch) => {
+    try {
+      const response = await axios.post('https://chat-backend-ulkc.onrender.com/api/chat/getmsg/');
+      const messages = response.data; 
+      dispatch(messageaction(messages));
+    } catch (error) {
+      console.error('Error fetching messages:', error);
+    }
+  };
+  
+  export const sendMessage = (message) => async (dispatch) => {
+    try {
+      const response = await axios.post('https://chat-backend-ulkc.onrender.com/api/chat/addmsg/', {
+        text: message,
+        date: new Date().toISOString(),
+      });
+      const newMessage = response.data; 
+      dispatch(addMessage(newMessage));
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  };
 
 export const Messagereducer = Messageslice.reducer
 export const {messageaction}= Messageslice.actions
+// export { fetchMessages, sendMessage };
